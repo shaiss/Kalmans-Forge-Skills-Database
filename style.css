@@ -127,8 +127,8 @@ h1 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-size: 0.9em;
   width: 300px;
-  max-height: calc(100vh - 140px); /* Adjust 140px based on header height + desired top margin */
-  overflow-y: auto; /* Makes the legend scrollable if it's too tall */
+  /* max-height: calc(100vh - 140px); /* Adjust 140px based on header height + desired top margin */
+  /*overflow-y: auto; /* Makes the legend scrollable if it's too tall */
 }
 
 
@@ -159,12 +159,20 @@ h1 {
 
 /* Export/Import button styles */
 .export-import {
-  margin-top: 30px;
+  position: fixed;
+  top: auto; /* Remove top positioning */
+  bottom: 20px; /* Position from bottom */
+  right: 20px;
+  width: 300px; /* Match legend width */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 0 0 5px 5px; /* Rounded corners only on bottom */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .export-import button {
-  margin: 0 10px;
+  margin: 5px;
   padding: 10px 20px;
   font-size: 16px;
   background-color: #3498db;
@@ -173,6 +181,7 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: calc(100% - 10px); /* Full width minus margins */
 }
 
 .export-import button:hover {

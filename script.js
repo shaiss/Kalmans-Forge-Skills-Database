@@ -88,9 +88,16 @@ function handleStarClick(event) {
     const skillStars = star.closest('.stars');
     const skill = skillStars.getAttribute('data-skill');
 
-    skillsData[skill] = rating;
+    if (skillsData[skill] === rating) {
+        // If the clicked star is already the current rating, clear the rating
+        delete skillsData[skill];
+    } else {
+        // Otherwise, set the new rating
+        skillsData[skill] = rating;
+    }
+
     saveSkillsData();
-    updateStarDisplay(skillStars, rating);
+    updateStarDisplay(skillStars, skillsData[skill] || 0);
 }
 
 // Update star display for a single skill
