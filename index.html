@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalman's Forge Skills Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="fixed-header">
+    <h1>Kalman's Forge Skills Database</h1>
+    <div class="tabs" id="skillTabs"></div>
+  </header>
+  
+  <div class="container">      
+      <div class="tabs" id="skillTabs"></div>
+  
+      <div id="skillContents"></div>
+  
+    <div class="legend">
+        <h3>Star Rating Legend</h3>
+        <div class="legend-item">
+            <div class="legend-stars">★☆☆☆☆</div>
+            <div class="legend-text">Introduction level</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-stars">★★☆☆☆</div>
+            <div class="legend-text">Needs assistance/shadowing</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-stars">★★★☆☆</div>
+            <div class="legend-text">Independent proficiency</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-stars">★★★★☆</div>
+            <div class="legend-text">Can train others</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-stars">★★★★★</div>
+            <div class="legend-text">Industry-recognized expert/div>
+        </div>
+    </div>
+  
+      <div class="export-import">
+          <button id="exportBtn">Export Skills</button>
+          <input type="file" id="importInput" style="display: none;" accept=".json">
+          <button id="importBtn">Import Skills</button>
+      </div>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>

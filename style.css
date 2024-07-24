@@ -1,0 +1,192 @@
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  padding-top: 120px;
+  /* Adjust this value based on the height of your header */
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Fixed Header*/
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f4f4f4;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.fixed-header h1 {
+  margin-bottom: 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  /*padding-right: 340px; /* Adjust this value based on the width of your legend plus some extra space */
+  margin-top: 55px; /* Adjust this value to align with the legend */
+
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+/* Tab styles */
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  cursor: pointer;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab:hover {
+  background-color: #ecf0f1;
+}
+
+.tab.active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Content styles */
+.content {
+  
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Skill styles */
+.skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.skill:hover {
+  background-color: #ecf0f1;
+}
+
+/* Star rating styles */
+.stars {
+  font-size: 24px;
+}
+
+.star {
+  cursor: pointer;
+  color: #bdc3c7;
+  transition: color 0.3s;
+}
+
+.star:hover,
+.star.filled {
+  color: #f1c40f;
+}
+
+/* Legend styles */
+.legend {
+  position: fixed;
+  top: 220px;
+  right: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  width: 300px;
+  max-height: calc(100vh - 140px); /* Adjust 140px based on header height + desired top margin */
+  overflow-y: auto; /* Makes the legend scrollable if it's too tall */
+}
+
+
+.legend h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-stars {
+  color: #f1c40f;
+  margin-right: 10px;
+  width: 100px;
+  text-align: left;
+}
+
+.legend-text {
+  flex-grow: 1;
+  color: #34495e;
+}
+
+/* Export/Import button styles */
+.export-import {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.export-import button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.export-import button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+  }
+
+  .legend {
+    position: static;
+    margin-top: 20px;
+  }
+}
