@@ -131,8 +131,18 @@ function switchTab(category) {
 }
 
 // Export functionality
-document.getElementById('exportBtn').addEventListener('click', () => {
-    const dataStr = JSON.stringify(skillsData, null, 2);
+document.getElementById('exportBtn').addEventListener('click', async () => {
+    const exportData = {};
+    for (const category of skillCategories) {
+        const skills = await loadSkillsFromJson(category);
+        exportData[category] = {};
+        for (const skill of skills) {
+            if (skillsData[skill] !== undefined) {
+                exportData[category][skill] = skillsData[skill];
+            }
+        }
+    }
+    const dataStr = JSON.stringify(exportData, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     const exportFileDefaultName = 'skills_data.json';
 
@@ -147,18 +157,29 @@ document.getElementById('importBtn').addEventListener('click', () => {
     document.getElementById('importInput').click();
 });
 
-document.getElementById('importInput').addEventListener('change', (event) => {
+document.getElementById('importInput').addEventListener('change', async (event) => {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = async function(e) {
             try {
                 const importedData = JSON.parse(e.target.result);
-                skillsData = importedData;
+                skillsData = {};
+                for (const category in importedData) {
+                    if (skillCategories.includes(category)) {
+                        const skills = await loadSkillsFromJson(category);
+                        for (const skill in importedData[category]) {
+                            if (skills.includes(skill)) {
+                                skillsData[skill] = importedData[category][skill];
+                            }
+                        }
+                    }
+                }
                 saveSkillsData();
-                updateSkillsDisplay();
+                await updateSkillsDisplay();
                 alert('Skills data imported successfully!');
             } catch (error) {
+                console.error('Error importing skills data:', error);
                 alert('Error importing skills data. Please ensure the file is a valid JSON.');
             }
         };
