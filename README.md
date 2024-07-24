@@ -1,5 +1,7 @@
 # Kalman's Forge Skills Database
 
+![Kalman's Forge Skills Database UI](images/kalmans-forge-ui.png)
+
 ## Overview
 
 Kalman's Forge Skills Database is a web-based application designed for tracking and managing user skills across various categories. It provides a simple, user-friendly interface for self-assessment of proficiency levels in different areas.
