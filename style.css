@@ -103,6 +103,8 @@ h1 {
 /* Star rating styles */
 .stars {
   font-size: 24px;
+  display: inline-flex;
+  flex-direction: row-reverse;
 }
 
 .star {
@@ -112,9 +114,11 @@ h1 {
 }
 
 .star:hover,
+.star:hover ~ .star,
 .star.filled {
   color: #f1c40f;
 }
+
 
 /* Legend styles */
 .legend {
@@ -150,6 +154,8 @@ h1 {
   margin-right: 10px;
   width: 100px;
   text-align: left;
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .legend-text {

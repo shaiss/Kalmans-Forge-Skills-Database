@@ -59,7 +59,7 @@ async function updateSkillsDisplay() {
             skillDiv.innerHTML = `
                 <span>${skill}</span>
                 <div class="stars" data-skill="${skill}">
-                    ${[1, 2, 3, 4, 5].map(rating => `
+                    ${[5, 4, 3, 2, 1].map(rating => `
                         <span class="star ${skillsData[skill] >= rating ? 'filled' : ''}" data-rating="${rating}">★</span>
                     `).join('')}
                 </div>
@@ -103,7 +103,8 @@ function handleStarClick(event) {
 // Update star display for a single skill
 function updateStarDisplay(skillStars, rating) {
     skillStars.querySelectorAll('.star').forEach(star => {
-        star.classList.toggle('filled', star.getAttribute('data-rating') <= rating);
+        const starRating = parseInt(star.getAttribute('data-rating'));
+        star.classList.toggle('filled', starRating <= rating);
     });
 }
 
